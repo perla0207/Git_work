@@ -1,0 +1,51 @@
+======   Java Installations in EC2 Instance  =========
+How can I upgrade to Java 1.8 on an Amazon Linux Server?
+
+sudo yum install java-1.8.0
+sudo yum remove java-1.7.0-openjdk
+
+Install Java Runtime 1.8
+
+sudo yum install java-1.8.0
+or if you need a java compiler and other developer tools:
+
+sudo yum install java-1.8.0-openjdk-devel
+Then use the alternatives command to make Java 1.8 the default.
+
+sudo /usr/sbin/alternatives --config java
+sudo /usr/sbin/alternatives --config javac
+# etc
+If you prefer you can remove Java 1.7 with
+
+sudo yum remove java-1.7.0-openjdk
+===================================JENKINS INSTALLATION==============
+
+Please launch an Amazon Linux instance using Amazon Linux AMI.
+
+Login to your Amazon Linux instance.
+
+Become root using “sudo su -” command.
+
+Update your repositories
+
+yum update
+
+Get Jenkins repository using below command
+
+wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+
+Get Jenkins repository key
+
+rpm --import http://pkg.jenkins-ci.org/redhat-stable/jenkins-ci.org.key
+
+Install jenkins package
+
+yum install jenkins
+
+Start jenkins and make sure it starts automatically at system startup
+
+service jenkins start
+
+chkconfig jenkins on
+
+Open your browser and navigate to http://:8080. You will see jenkins dashboard.
