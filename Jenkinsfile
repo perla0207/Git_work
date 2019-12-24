@@ -17,6 +17,7 @@ pipeline{
             }
             steps{
                 echo "deploy to dev server"
+		echo "........."
             }
         }
 
